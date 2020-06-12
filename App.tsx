@@ -22,7 +22,7 @@ export default function App() {
           {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
           <NavigationContainer linking={LinkingConfiguration}>
             <Stack.Navigator>
-              <Stack.Screen name="Root" component={BottomTabNavigator as any} />
+              <Stack.Screen name="Root" component={BottomTabNavigator} />
             </Stack.Navigator>
           </NavigationContainer>
         </View>
