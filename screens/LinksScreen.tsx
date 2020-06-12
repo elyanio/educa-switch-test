@@ -4,6 +4,13 @@ import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 
+interface Props{
+  icon:string,
+  label:string,
+  onPress: () => void,
+  isLastOption?: boolean,
+}
+
 export default function LinksScreen() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -29,7 +36,7 @@ export default function LinksScreen() {
   );
 }
 
-function OptionButton({ icon, label, onPress, isLastOption }: { icon: any, label: any, onPress: any, isLastOption?: any }) {
+function OptionButton({ icon, label, onPress, isLastOption }: Props) {
   return (
     <RectButton style={[styles.option, isLastOption && styles.lastOption]} onPress={onPress}>
       <View style={{ flexDirection: 'row' }}>
