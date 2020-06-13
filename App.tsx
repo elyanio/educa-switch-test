@@ -7,7 +7,6 @@ import BottomTabNavigator from './navigation/BottomTabNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { theme } from './theme';
-
 const Stack = createStackNavigator();
 
 export default function App() {
