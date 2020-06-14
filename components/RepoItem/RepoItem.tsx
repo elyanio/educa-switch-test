@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import { List } from 'react-native-paper'
-import { theme } from '../theme'
-import { ListItemTitle } from './ListItemTitle'
+import { theme } from '../../theme'
+import { ListItemTitle } from './RepoTitleItem'
 
 interface Props {
     onPress: (itemId: string) => void;
@@ -12,7 +12,7 @@ interface Props {
     description: string;
 }
 
-export const ListItemView = ({ id, title, rating, description, onPress }: Props) => {
+const RepoItem = ({ id, title, rating, description, onPress }: Props) => {
 
     const handleOnPress = () => {
         onPress(id)
@@ -39,3 +39,5 @@ const styles = StyleSheet.create({
         margin: 5
     }
 });
+
+export default RepoItem;
