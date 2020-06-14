@@ -5,8 +5,8 @@ import { theme } from '../theme'
 import { ListItemTitle } from './ListItemTitle'
 
 interface Props {
-    onPress: (itemId: number) => void;
-    id: number;
+    onPress: (itemId: string) => void;
+    id: string;
     title: string;
     rating: number;
     description: string;

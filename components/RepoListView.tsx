@@ -1,10 +1,11 @@
 import React from 'react'
 import { FlatList, StyleSheet } from 'react-native'
 import { ListItemView } from './ListItemView'
+import { DataRepoResultType } from '../types'
 
 interface Props {
-    data: any[];
-    onItemPress: (itemId: number) => void;
+    data: DataRepoResultType[];
+    onItemPress: (itemId: string) => void;
 }
 
 export const RepoListView = ({ data, onItemPress }: Props) => {
@@ -14,15 +15,15 @@ export const RepoListView = ({ data, onItemPress }: Props) => {
             style={styles.list}
             renderItem={({ item }) =>
                 <ListItemView
-                    key={item.key}
+                    key={item.id}
                     id={item.id}
-                    title={item.title}
-                    description={item.description}
+                    title={item.repositoryName}
+                    description={item.repositoryDescription}
                     onPress={onItemPress}
-                    rating={item.rating}
+                    rating={item.stargazers}
                 />
             }
-            keyExtractor={item => item.key}
+            keyExtractor={item => item.id}
         />
     )
 }
