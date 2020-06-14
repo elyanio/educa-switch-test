@@ -1,41 +1,74 @@
-import React from 'react'
-import { RepoListView } from '../components/RepoListView'
+import React from "react";
+import { RepoListView } from "../components/RepoList";
+import { DataRepoResultType } from "../types";
 
-const mockData = [
-    {
-        key: '1',
-        id: 1,
-        title: 'Lorem ipsum dolor sit amet.',
-        description: 'Vero nisi explicabo quae cum impedit totam temporibus, illo libero voluptates, minima quas odio cumque consequuntur, dolor delectus. Nobis fugit libero eius.',
-        rating: 5422
-    },
-    {
-        key: '2',
-        id: 2,
-        title: 'Lorem ipsum dolor sit amet2.',
-        description: 'Vero nisi explicabo quae cum impedit totam temporibus, illo libero voluptates, minima quas odio cumque consequuntur, dolor delectus. Nobis fugit libero eius.',
-        rating: 5422
-    },
-    {
-        key: '3',
-        id: 3,
-        title: 'Lorem ipsum dolor sit amet3.',
-        description: 'Vero nisi explicabo quae cum impedit totam temporibus, illo libero voluptates, minima quas odio cumque consequuntur, dolor delectus. Nobis fugit libero eius.',
-        rating: 5422
-    },
-    {
-        key: '4',
-        id: 4,
-        title: 'Lorem ipsum dolor sit amet4.',
-        description: 'Vero nisi explicabo quae cum impedit totam temporibus, illo libero voluptates, minima quas odio cumque consequuntur, dolor delectus. Nobis fugit libero eius.',
-        rating: 5422
-    }
-]
+const mockData: DataRepoResultType[] = [
+  {
+    id: "1",
+    repositoryName: "Lorem ipsum dolor sit amet.",
+    repositoryDescription:
+      "Vero nisi explicabo quae cum impedit totam temporibus, illo libero voluptates, minima quas odio cumque consequuntur, dolor delectus. Nobis fugit libero eius.",
+    stargazers: 5422,
+    avatarUrl: "Lorem ipsum dolor sit amet.",
+    userLogin: "Lorem ipsum dolor sit amet.",
+  },
+  {
+    id: "2",
+    repositoryName: "Lorem ipsum dolor sit amet.",
+    repositoryDescription:
+      "Vero nisi explicabo quae cum impedit totam temporibus, illo libero voluptates, minima quas odio cumque consequuntur, dolor delectus. Nobis fugit libero eius.",
+    stargazers: 5422,
+    avatarUrl: "Lorem ipsum dolor sit amet.",
+    userLogin: "Lorem ipsum dolor sit amet.",
+  },
+  {
+    id: "3",
+    repositoryName: "Lorem ipsum dolor sit amet.",
+    repositoryDescription:
+      "Vero nisi explicabo quae cum impedit totam temporibus, illo libero voluptates, minima quas odio cumque consequuntur, dolor delectus. Nobis fugit libero eius.",
+    stargazers: 5422,
+    avatarUrl: "Lorem ipsum dolor sit amet.",
+    userLogin: "Lorem ipsum dolor sit amet.",
+  },
+  {
+    id: "4",
+    repositoryName: "Lorem ipsum dolor sit amet.",
+    repositoryDescription:
+      "Vero nisi explicabo quae cum impedit totam temporibus, illo libero voluptates, minima quas odio cumque consequuntur, dolor delectus. Nobis fugit libero eius.",
+    stargazers: 5422,
+    avatarUrl: "Lorem ipsum dolor sit amet.",
+    userLogin: "Lorem ipsum dolor sit amet.",
+  },
+  {
+    id: "5",
+    repositoryName: "Lorem ipsum dolor sit amet.",
+    repositoryDescription:
+      "Vero nisi explicabo quae cum impedit totam temporibus, illo libero voluptates, minima quas odio cumque consequuntur, dolor delectus. Nobis fugit libero eius.",
+    stargazers: 5422,
+    avatarUrl: "Lorem ipsum dolor sit amet.",
+    userLogin: "Lorem ipsum dolor sit amet.",
+  },
+  {
+    id: "6",
+    repositoryName: "Lorem ipsum dolor sit amet.",
+    repositoryDescription:
+      "Vero nisi explicabo quae cum impedit totam temporibus, illo libero voluptates, minima quas odio cumque consequuntur, dolor delectus. Nobis fugit libero eius.",
+    stargazers: 5422,
+    avatarUrl: "Lorem ipsum dolor sit amet.",
+    userLogin: "Lorem ipsum dolor sit amet.",
+  },
+  {
+    id: "7",
+    repositoryName: "Lorem ipsum dolor sit amet.",
+    repositoryDescription:
+      "Vero nisi explicabo quae cum impedit totam temporibus, illo libero voluptates, minima quas odio cumque consequuntur, dolor delectus. Nobis fugit libero eius.",
+    stargazers: 5422,
+    avatarUrl: "Lorem ipsum dolor sit amet.",
+    userLogin: "Lorem ipsum dolor sit amet.",
+  },
+];
 export const RepoList = () => {
+  const onItemPressMock = (itemId: string) => {};
 
-    const onItemPress = (itemId: number) => {
-        console.log(itemId)
-    }
-
-    return <RepoListView data={mockData} onItemPress={onItemPress} />
-}
+  return <RepoListView data={mockData} onItemPress={onItemPressMock} />;
+};
