@@ -1,7 +1,6 @@
 import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import { ListItemView } from '../components/ListItemView';
 import { RepoList } from '../container/RepoList';
 
 export default function HomeScreen() {

@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { FlatList, StyleSheet } from "react-native";
 import { DataRepoResultType } from "../types";
-import { ListItemView } from "./ListItemView";
+import RepoItem from "./RepoItem";
 
 interface Props {
   data: DataRepoResultType[];
@@ -17,7 +17,7 @@ export const RepoListView = ({ data, onItemPress }: Props) => {
     ({
       item: { id, repositoryName, repositoryDescription, stargazers },
     }: RenderItemProps) => (
-      <ListItemView
+      <RepoItem
         id={id}
         title={repositoryName}
         description={repositoryDescription}

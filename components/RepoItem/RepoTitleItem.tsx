@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Rating } from './Rating';
+import { Rating } from '../Rating';
 
 interface Props {
     title: string;
