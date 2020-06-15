@@ -8,6 +8,7 @@ import useCachedResources from './hooks/useCachedResources';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
 import { navigator } from './navigation/Root';
 import { theme } from './theme';
+import { AppHeader } from './components/AppHeader';
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -21,6 +22,7 @@ export default function App() {
           <View style={styles.container}>
             {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
             <NavigationContainer linking={LinkingConfiguration}>
+              <AppHeader />
               {navigator}
             </NavigationContainer>
           </View>

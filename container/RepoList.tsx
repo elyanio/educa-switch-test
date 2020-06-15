@@ -20,7 +20,7 @@ export const RepoList = () => {
 
   const navigation = useNavigation();
   const onItemPressMock = (itemId: string) => {
-    navigation.navigate("Links");
+    navigation.navigate("Collaborators");
   };
 
   return <RepoListView data={dataPrepared} onItemPress={onItemPressMock} />;
