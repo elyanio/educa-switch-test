@@ -1,18 +1,18 @@
 import React, { useCallback } from "react";
 import { FlatList, StyleSheet } from "react-native";
-import { DataRepoResultType } from "../types";
 import RepoItem from "./RepoItem";
+import { Repository } from "../generate/types";
 
 interface Props {
-  data: DataRepoResultType[];
+  data: Repository[];
   onItemPress: (itemId: string) => void;
 }
 
 interface RenderItemProps {
-  item: DataRepoResultType;
+  item: Repository;
 }
 
-export const RepoListView = ({ data, onItemPress }: Props) => {
+export const RepoList = ({ data, onItemPress }: Props) => {
   const _renderItem = useCallback(
     ({
       item: { id, name, description, stargazers },
