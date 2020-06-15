@@ -18191,6 +18191,30 @@ export type ViewerHovercardContext = HovercardContext & {
 };
 
 
+export type CollaboratorsQueryVariables = Exact<{
+  name: Scalars['String'];
+  owner: Scalars['String'];
+}>;
+
+
+export type CollaboratorsQuery = (
+  { __typename?: 'Query' }
+  & { repository?: Maybe<(
+    { __typename?: 'Repository' }
+    & Pick<Repository, 'databaseId' | 'name' | 'description'>
+    & { collaborators?: Maybe<(
+      { __typename?: 'RepositoryCollaboratorConnection' }
+      & { edges?: Maybe<Array<Maybe<(
+        { __typename?: 'RepositoryCollaboratorEdge' }
+        & { node: (
+          { __typename?: 'User' }
+          & Pick<User, 'id' | 'avatarUrl' | 'name'>
+        ) }
+      )>>> }
+    )> }
+  )> }
+);
+
 export type SearchQueryVariables = Exact<{
   query: Scalars['String'];
 }>;
@@ -18210,10 +18234,10 @@ export type SearchQuery = (
           & Pick<StargazerConnection, 'totalCount'>
         ), owner: (
           { __typename?: 'Organization' }
-          & Pick<Organization, 'avatarUrl' | 'login'>
+          & Pick<Organization, 'login'>
         ) | (
           { __typename?: 'User' }
-          & Pick<User, 'avatarUrl' | 'login'>
+          & Pick<User, 'login'>
         ) }
       ) | { __typename: 'User' }> }
     )>>> }
@@ -18221,6 +18245,51 @@ export type SearchQuery = (
 );
 
 
+export const CollaboratorsDocument = gql`
+    query collaborators($name: String!, $owner: String!) {
+  repository(name: $name, owner: $owner) {
+    databaseId
+    name
+    description
+    collaborators {
+      edges {
+        node {
+          id
+          avatarUrl
+          name
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useCollaboratorsQuery__
+ *
+ * To run a query within a React component, call `useCollaboratorsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCollaboratorsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCollaboratorsQuery({
+ *   variables: {
+ *      name: // value for 'name'
+ *      owner: // value for 'owner'
+ *   },
+ * });
+ */
+export function useCollaboratorsQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<CollaboratorsQuery, CollaboratorsQueryVariables>) {
+        return ApolloReactHooks.useQuery<CollaboratorsQuery, CollaboratorsQueryVariables>(CollaboratorsDocument, baseOptions);
+      }
+export function useCollaboratorsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<CollaboratorsQuery, CollaboratorsQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<CollaboratorsQuery, CollaboratorsQueryVariables>(CollaboratorsDocument, baseOptions);
+        }
+export type CollaboratorsQueryHookResult = ReturnType<typeof useCollaboratorsQuery>;
+export type CollaboratorsLazyQueryHookResult = ReturnType<typeof useCollaboratorsLazyQuery>;
+export type CollaboratorsQueryResult = ApolloReactCommon.QueryResult<CollaboratorsQuery, CollaboratorsQueryVariables>;
 export const SearchDocument = gql`
     query search($query: String!) {
   search(type: REPOSITORY, query: $query, first: 10) {
@@ -18235,7 +18304,6 @@ export const SearchDocument = gql`
             totalCount
           }
           owner {
-            avatarUrl
             login
           }
         }
