@@ -1,7 +1,7 @@
 export type DataRepoResultType = {
         id:string,
-        repositoryName: string,
-        repositoryDescription: string,
+        name: string,
+        description: string,
         stargazers: number,   //total count of stars of the repo
         avatarUrl: string,
         userLogin: string

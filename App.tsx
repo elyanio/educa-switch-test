@@ -9,14 +9,12 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { theme } from './theme';
 
 import { ApolloProvider } from 'react-apollo';
-import makeApolloClient from './ApolloClient';
+import { client } from './ApolloClient';
 
 const Stack = createStackNavigator();
 
 export default function App() {
 const isLoadingComplete = useCachedResources();
-
-const client = makeApolloClient();
 
   if (!isLoadingComplete) {
     return null;

@@ -15,12 +15,12 @@ interface RenderItemProps {
 export const RepoListView = ({ data, onItemPress }: Props) => {
   const _renderItem = useCallback(
     ({
-      item: { id, repositoryName, repositoryDescription, stargazers },
+      item: { id, name, description, stargazers },
     }: RenderItemProps) => (
       <RepoItem
         id={id}
-        title={repositoryName}
-        description={repositoryDescription}
+        title={name}
+        description={description}
         onPress={onItemPress}
         rating={stargazers}
       />

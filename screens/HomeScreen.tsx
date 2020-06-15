@@ -2,6 +2,7 @@ import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { RepoList } from '../container/RepoList';
+import RepoSearch from '../container/RepoSearch';
 
 export default function HomeScreen() {
 
@@ -11,6 +12,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
+      <RepoSearch/>
       <RepoList />
     </View>
   );
