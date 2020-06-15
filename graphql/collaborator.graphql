@@ -1,0 +1,16 @@
+query collaborators($name: String!, $owner: String!) {
+  repository(name: $name, owner: $owner) {
+    databaseId
+    name
+    description
+    collaborators {
+      edges {
+        node {
+          id
+          avatarUrl
+          name
+        }
+      }
+    }
+  }
+}

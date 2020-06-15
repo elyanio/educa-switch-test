@@ -19,8 +19,16 @@ export const RepoList = () => {
   }, [data]);
 
   const navigation = useNavigation();
-  const onItemPressMock = (itemId: string) => {
-    navigation.navigate("Collaborators");
+  const onItemPressMock = (
+    name: string,
+    description: string | null | undefined,
+    owner: string
+  ) => {
+    navigation.navigate("Collaborators", {
+      nameRepo: name,
+      descriptionRepo: description,
+      owner
+    });
   };
 
   return <RepoListView data={dataPrepared} onItemPress={onItemPressMock} />;

@@ -16,5 +16,8 @@ export const theme = {
         secondary: darken(0.14, primary),
         white: '#ffffff',
         black: '#000000'
+    },
+    dimension: {
+      imageItem: 80,
     }
 };

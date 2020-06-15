@@ -5,7 +5,7 @@ import { Repository } from "../generate/types";
 
 interface Props {
   data: Repository[];
-  onItemPress: (itemId: string) => void;
+  onItemPress: (name: string, description: string | null | undefined, owner: string) => void;
 }
 
 interface RenderItemProps {
@@ -15,14 +15,15 @@ interface RenderItemProps {
 export const RepoList = ({ data, onItemPress }: Props) => {
   const _renderItem = useCallback(
     ({
-      item: { id, name, description, stargazers },
+      item: { id, name, description, stargazers, owner },
     }: RenderItemProps) => (
       <RepoItem
         id={id}
-        title={name}
+        name={name}
         description={description}
         onPress={onItemPress}
         rating={stargazers}
+        owner={owner}
       />
     ),
     [onItemPress]
