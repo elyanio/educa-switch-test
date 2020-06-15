@@ -2,7 +2,8 @@
 schema:
   - https://api.github.com/graphql:
       headers:
-        Authorization: "Bearer 33e42325e090bf8fdd171d711bcd5daf130e331f"
+        Authorization: "Bearer 33e42325e090bf8fdd171d711bcd5daf130e331f" 
+        # you need replace "Bearer token" for a valid token
 generates:
   ./generate/types.d.ts:
     plugins:
