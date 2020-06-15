@@ -2,6 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import LinksScreen from "../screens/LinksScreen";
 import React from 'react'
+import { UserList } from "../components/UserList";
 
 const StackNavigator = createStackNavigator();
 
@@ -15,8 +16,8 @@ export const navigator = (
             }}
         />
         <StackNavigator.Screen
-            name="Links"
-            component={LinksScreen}
+            name="Collaborators"
+            component={UserList}
             options={{
                 headerShown: false
             }}
