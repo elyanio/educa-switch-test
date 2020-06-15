@@ -1,0 +1,16 @@
+# schema: https://api.github.com/graphql
+schema:
+  - https://api.github.com/graphql:
+      headers:
+        Authorization: "Bearer 33e42325e090bf8fdd171d711bcd5daf130e331f"
+generates:
+  ./generate/types.d.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+      - fragment-matcher
+    config:
+      withHooks: true
+      withHOC: false
+      withComponent: false
