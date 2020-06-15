@@ -7,7 +7,7 @@ import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import IntrospectionResultData from "./generate/types";
 
-const token = process.env.EXPO_API_TOKEN;
+const token = process.env.EXPO_API_TOKEN
 const endpoint = process.env.EXPO_API_ENDPOINT;
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
