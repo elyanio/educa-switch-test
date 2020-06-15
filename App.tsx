@@ -3,7 +3,7 @@ import * as React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
-import makeApolloClient from './ApolloClient';
+import { client } from './ApolloClient';
 import useCachedResources from './hooks/useCachedResources';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
 import { navigator } from './navigation/Root';
@@ -11,8 +11,6 @@ import { theme } from './theme';
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
-
-  const client = makeApolloClient();
 
   if (!isLoadingComplete) {
     return null;

@@ -1,27 +1,35 @@
-import { HttpLink } from 'apollo-link-http';
-import { ApolloClient } from 'apollo-client';
-import { InMemoryCache } from "apollo-cache-inmemory";
-
+import {
+  defaultDataIdFromObject,
+  InMemoryCache,
+  IntrospectionFragmentMatcher,
+} from "apollo-cache-inmemory";
+import { ApolloClient } from "apollo-client";
+import { HttpLink } from "apollo-link-http";
+import IntrospectionResultData from "./generate/types";
 
 const token = process.env.EXPO_API_TOKEN;
 const endpoint = process.env.EXPO_API_ENDPOINT;
 
-const makeApolloClient = () => {
-        // create an apollo link instance, a network interface for apollo client
-        const link = new HttpLink({
-        uri: `${endpoint}`,
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-        // create an inmemory cache instance for caching graphql data
-        const cache = new InMemoryCache()
-        // instantiate apollo client with apollo link instance and cache instance
-        const client = new ApolloClient({
-          link,
-          cache
-        });
-        return client;
-      }
+const fragmentMatcher = new IntrospectionFragmentMatcher({
+  introspectionQueryResultData: IntrospectionResultData as any,
+});
 
-      export default makeApolloClient;
+export const client = new ApolloClient({
+  cache: new InMemoryCache({
+    fragmentMatcher,
+    dataIdFromObject: (object) => {
+      switch (object.__typename) {
+        case "SearchResultItemConnection":
+          return `SearchResultItemConnection`;
+        default:
+          return defaultDataIdFromObject(object);
+      }
+    },
+  }),
+  link: new HttpLink({
+    uri: `${endpoint}`,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }),
+});
