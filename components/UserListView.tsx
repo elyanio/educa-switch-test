@@ -40,7 +40,7 @@ export const UserListView = ({ width, height, nameRepo, descriptionRepo }: Props
             <Text style={style.description}>{descriptionRepo}</Text>
             <FlatList
                 data={dataApi}
-                renderItem={({ item, index }) =>
+                renderItem={({ item }) =>
                     <View style={style.item}>
                         <UserItemList
                             key={item.id}
