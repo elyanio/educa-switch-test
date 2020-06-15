@@ -1,0 +1,17 @@
+schema:
+  - https://api.github.com/graphql:
+      headers:
+        Authorization: "Bearer 36935f894ddb33136d82d766200f4e8521d32d87" 
+        # you need replace "Bearer token" for a valid token
+documents: "./graphql/*.graphql"
+generates:
+  ./generate/types.d.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+      - fragment-matcher
+    config:
+      withHooks: true
+      withHOC: false
+      withComponent: false
