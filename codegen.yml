@@ -5,7 +5,7 @@ schema:
         # you need replace "Bearer token" for a valid token
 documents: "./graphql/*.graphql"
 generates:
-  ./generate/types.d.ts:
+  ./generate/types.ts:
     plugins:
       - typescript
       - typescript-operations

@@ -6,10 +6,6 @@ import RepoSearch from '../container/RepoSearch';
 
 export default function HomeScreen() {
 
-  const handleOnPres = () => {
-    console.log('On Press')
-  }
-
   return (
     <View style={styles.container}>
       <RepoSearch/>
