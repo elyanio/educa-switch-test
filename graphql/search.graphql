@@ -10,6 +10,9 @@ query search($query: String!) {
           stargazers {
             totalCount
           }
+          owner {
+            login
+          }
         }
       }
     }
