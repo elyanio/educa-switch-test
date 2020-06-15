@@ -1,6 +1,7 @@
 import React from "react";
 import { RepoListView } from "../components/RepoList";
 import { DataRepoResultType } from "../types";
+import { useNavigation } from "@react-navigation/native";
 
 const mockData: DataRepoResultType[] = [
   {
@@ -68,7 +69,11 @@ const mockData: DataRepoResultType[] = [
   },
 ];
 export const RepoList = () => {
-  const onItemPressMock = (itemId: string) => {};
+
+  const navigation = useNavigation();
+  const onItemPressMock = (itemId: string) => {
+    navigation.navigate("Links")
+  };
 
   return <RepoListView data={mockData} onItemPress={onItemPressMock} />;
 };
