@@ -5,6 +5,7 @@ import { FlatList } from 'react-native-gesture-handler';
 
 export interface MockData {
     name: string
+    id:string
     avatar: ImageSourcePropType
 }
 
@@ -15,14 +16,16 @@ interface Props {
     descriptionRepo: string
 }
 const dataApi: MockData[] = [
-    {
+    {   id:"1", 
         name: 'Alejandro',
         avatar: require('../assets/images/robot-prod.png')
-    }, {
+    }, { 
+        id:"2",
         name: 'Alejandro',
         avatar: require('../assets/images/robot-prod.png')
     },
-    {
+    { 
+        id:"3",
         name: 'Alejandro',
         avatar: require('../assets/images/robot-dev.png')
     }
@@ -40,7 +43,7 @@ export const UserListView = ({ width, height, nameRepo, descriptionRepo }: Props
                 renderItem={({ item, index }) =>
                     <View style={style.item}>
                         <UserItemList
-                            key={index}
+                            key={item.id}
                             title={item.name}
                             source={item.avatar}
                             height={height}
@@ -53,8 +56,6 @@ export const UserListView = ({ width, height, nameRepo, descriptionRepo }: Props
         </View>
     )
 }
-
-
 const style = StyleSheet.create({
     container: {
         display: "flex",
