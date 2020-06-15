@@ -50,7 +50,7 @@ Once you create this file with those variables inside, you must restart the whol
 In the words of Dan Abramov:
 > "State is ephemeral"
 [Apollo Cache](https://www.apollographql.com/docs/react/caching/cache-configuration/)
-##### That's why it's used Apollo Cache over Redux, or other libs to maintain local state 
+##### That's why it's used Apollo Cache over Redux, or other libs to maintain local state, and because it was a requirement in the explanation shared in GITHUB.  
 
 ##### Notes:
 To see a correct functionality about repos collaborators pages, you can only ask to your repos info, associated with the generated TOKEN in your account ,  in other way you will get a null result set from GitHub, because their rules about permission about "Collaborators" in foreign repositories.
