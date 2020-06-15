@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, ImageSourcePropType, StyleSheet, Text, Image } from 'react-native';
+import { theme } from '../theme';
 
 interface Props {
     title?: string
@@ -30,7 +31,12 @@ const styleInline = ({ width, height }: Props) => StyleSheet.create({
 const style = StyleSheet.create({
     container: {
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "row",
+          alignItems: 'flex-start',
+          backgroundColor: theme.colors.white,
+          height: 100,
+          borderRadius: 10,
+          margin: 5
     },
     text: {
         paddingLeft: '0.5rem',
