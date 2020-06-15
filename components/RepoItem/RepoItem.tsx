@@ -3,13 +3,14 @@ import { StyleSheet } from 'react-native'
 import { List } from 'react-native-paper'
 import { theme } from '../../theme'
 import { ListItemTitle } from './RepoTitleItem'
+import { StargazerConnection } from '../../generate/types'
 
 interface Props {
     onPress: (itemId: string) => void;
     id: string;
     title: string;
-    rating: number;
-    description: string;
+    rating: StargazerConnection;
+    description: string | null | undefined;
 }
 
 const RepoItem = ({ id, title, rating, description, onPress }: Props) => {
@@ -21,7 +22,7 @@ const RepoItem = ({ id, title, rating, description, onPress }: Props) => {
     return (
         <List.Item
             style={styles.item}
-            title={<ListItemTitle title={title} rating={rating} />}
+            title={<ListItemTitle title={title} rating={rating.totalCount} />}
             description={description}
             onPress={handleOnPress}
         />

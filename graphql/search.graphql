@@ -1,0 +1,17 @@
+query search($query: String!) {
+  search(type: REPOSITORY, query: $query, first: 10) {
+    edges {
+      node {
+        __typename
+        ... on Repository {
+          name
+          description
+          id
+          stargazers {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}

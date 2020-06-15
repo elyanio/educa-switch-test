@@ -18208,6 +18208,12 @@ export type SearchQuery = (
         & { stargazers: (
           { __typename?: 'StargazerConnection' }
           & Pick<StargazerConnection, 'totalCount'>
+        ), owner: (
+          { __typename?: 'Organization' }
+          & Pick<Organization, 'avatarUrl' | 'login'>
+        ) | (
+          { __typename?: 'User' }
+          & Pick<User, 'avatarUrl' | 'login'>
         ) }
       ) | { __typename: 'User' }> }
     )>>> }
@@ -18227,6 +18233,10 @@ export const SearchDocument = gql`
           id
           stargazers {
             totalCount
+          }
+          owner {
+            avatarUrl
+            login
           }
         }
       }
